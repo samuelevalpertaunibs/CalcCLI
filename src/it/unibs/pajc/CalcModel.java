@@ -3,6 +3,10 @@ package it.unibs.pajc;
 import java.util.HashMap;
 import java.util.Stack;
 
+/**
+ * The {@code CalcModel} class represents a calculator model that supports basic arithmetic operations
+ * and reverse polish notation evaluation.
+ */
 public class CalcModel {
 	private HashMap<String, OperatoreBinario> operators = new HashMap<>();
 	
@@ -66,6 +70,22 @@ public class CalcModel {
 	public String dump() {
 		return compStack.toString();
 	}
+
+	public double eval() {
+		return eval_internal(this.compStack);
+	}
+
+	private double eval_internal(Stack<CompEl> _compStack ) {
+		CompEl el = _compStack.pop();
+
+		if(el.isOperator()) {
+			double left = eval_internal(_compStack);
+			double right = eval_internal(_compStack);
+			return el.operator.eval(left, right);
+		}
+
+        return el.value;
+    }
 	
 	
 }

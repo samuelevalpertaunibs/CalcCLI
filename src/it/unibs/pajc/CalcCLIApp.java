@@ -10,6 +10,7 @@ public class CalcCLIApp {
 		model.pushOperator("+");
 
 		System.out.println(model.dump());
+		System.out.println(model.eval());
 
 	}
 
