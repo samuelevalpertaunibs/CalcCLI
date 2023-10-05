@@ -65,7 +65,6 @@ public class CalcModel {
 	
 	public String dump() {
 		return compStack.toString();
-		// restituire una stringa contente l'espressione data in input
 	}
 	
 	
