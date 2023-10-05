@@ -72,15 +72,15 @@ public class CalcModel {
 	}
 
 	public double eval() {
-		return eval_internal(this.compStack);
+		return _eval(this.compStack);
 	}
 
-	private double eval_internal(Stack<CompEl> _compStack ) {
+	private double _eval(Stack<CompEl> _compStack ) {
 		CompEl el = _compStack.pop();
 
 		if(el.isOperator()) {
-			double left = eval_internal(_compStack);
-			double right = eval_internal(_compStack);
+			double left = _eval(_compStack);
+			double right = _eval(_compStack);
 			return el.operator.eval(left, right);
 		}
 
