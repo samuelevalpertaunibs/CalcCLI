@@ -14,6 +14,8 @@ public class CalcCLIApp {
 		//System.out.println(model.dump());
 		System.out.println(model.eval());
 
+        /* TODO modificare pushElement in modo che non debba scrivere in notazione inversa nel Main */
+
 	}
 
 }
